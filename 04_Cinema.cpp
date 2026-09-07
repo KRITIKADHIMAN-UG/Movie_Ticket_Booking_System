@@ -6,22 +6,25 @@
 #include "03_Screen.cpp"
 using namespace std;
 
-// Cinema: knows its name and OWNS its screens (composition - Cinema 1 *-- 1..* Screen).
-// Must NOT know about movies, shows, or bookings.
 class Cinema {
 private:
-    string name;
-    vector<Screen> screens;
+    string cinemaName;
+    vector<Screen> screenList;
 
 public:
-    Cinema(string name) : name(name) {}
+    Cinema(string name) : cinemaName(name) {}
 
-    void addScreen(const Screen& screen) {
-        screens.push_back(screen);
+    void addScreen(const Screen& newScreen) {
+        screenList.push_back(newScreen);
     }
 
-    string getName() const { return name; }
-    vector<Screen>& getScreens() { return screens; }
+    string getName() const {
+        return cinemaName;
+    }
+
+    vector<Screen>& getScreens() {
+        return screenList;
+    }
 };
 
 #endif
